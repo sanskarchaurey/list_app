@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SuperList - App</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <img class="brand-icon" src="assets/app_icon.png" alt="logo">
+            <div class="brand-text">
+                <div class="small">Order on WhatsApp from</div>
+                <div class="title">KOTHARI MEDICAL CORPORATION</div>
+                <div class="small">Power by list app </div>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <!-- phone / whatsapp / share icons -->
+            <div class="quick-icons">
+                <button class="icon-btn" id="phoneBtn" title="Call">
+                    <img src="assets/phone.jpg" alt="phone">
+                </button>
+                <button class="icon-btn" id="waBtn" title="WhatsApp">
+                    <img src="assets/watsapp_icon.jpg" alt="whatsapp">
+                </button>
+                <button class="icon-btn" id="shareBtn" title="Share">
+                    <img src="assets/share.jpg" alt="share">
+                </button>
+                <button id="menuToggle" class="menu-btn" aria-label="Open Menu">
+                    <img src="/assets/menu.jpg" alt="menu"> </button>
+
+    </header>
+
+    <!-- Side menu -->
+    <nav id="sideMenu" class="side-menu hidden">
+        <div class="menu-top">
+            <div class="menu-brand">
+                <img src="assets/app_icon.png" alt="logo">
+                <div>
+                    <div class="menu-title">ListApp</div>
+                    <div class="menu-sub">No customer details available</div>
+                </div>
+            </div>
+            <button id="closeMenu" class="menu-close">✕</button>
+        </div>
+
+        <ul class="menu-list">
+            <li class="menu-item"><span class="mi">🏠</span> Home</li>
+            <li class="menu-item"><span class="mi">👤</span> Customer Details</li>
+            <li class="menu-item"><span class="mi">🛒</span> Cart</li>
+            <li class="menu-item"><span class="mi">⬇️</span> Download App</li>
+            <li class="menu-item heading">ListApp</li>
+            <li class="menu-item"><span class="mi">ℹ️</span> About Us</li>
+            <li class="menu-item"><span class="mi">💳</span> Buy Now</li>
+            <li class="menu-item"><span class="mi">📞</span> Contact Us</li>
+        </ul>
+
+        <div class="menu-cta">
+            <button class="btn primary" id="getLinkBtn">Get Your Own Link Now!</button>
+            <div class="menu-whatsapp">
+                <img src="assets/" alt="wa"> +91 919993671716
+            </div>
+        </div>
+    </nav>
+
+    <!-- Layout -->
+    <main class="layout">
+        <!-- Left column -->
+        <section class="left-col">
+            <!-- Search row -->
+            <div class="search-row">
+                <div class="search-wrap">
+                    <span class="search-icon">🔍</span>
+                    <input id="searchInput" class="search" type="text" placeholder="Search Medicines">
+                    <!-- filter is inside search area at the right -->
+                    <button id="filterBtn" class="filter-btn" title="Filter">
+                        <img src="assets/FilterIcon.png" alt="filter">
+                    </button>
+                </div>
+                <!-- phone/whats/share quick small -->
+                <div class="search-side-icons">
+                    <button class="small-icon" id="waSmall"><img src="assets/watsapp_icon.jpg" alt="wa"></button>
+                    <button class="small-icon" id="phoneSmall"><img src="assets/phone.jpg" alt="phone"></button>
+                    <button class="small-icon" id="plusSmall"><img src="assets/expand.jpg" alt="plus"></button>
+                </div>
+            </div>
+
+            <div class="section-title">Supplier Details</div>
+            <hr>
+            <div class="section-title">Products</div>
+
+            <div id="productList" class="product-list"></div>
+        </section>
+
+        <!-- Right panel -->
+        <aside id="rightPanel" class="right-panel">
+            <h3>Your Details</h3>
+            <form id="detailsForm" autocomplete="off">
+                <label> Your Business Name* </label>
+                <input id="businessName" name="business" type="text" placeholder="Business Name" required disabled>
+
+                <label> Contact Number* </label>
+                <input id="contactNumber" name="contact" type="text" placeholder="Contact Number" required disabled>
+
+                <label> Address (Optional) </label>
+                <input id="address" name="address" type="text" placeholder="Address" disabled>
+
+                <label> Licence Number (Optional) </label>
+                <input id="licence" name="licence" type="text" placeholder="Licence Number" disabled>
+
+                <label> GSTIN (Optional) </label>
+                <input id="gstin" name="gstin" type="text" placeholder="GSTIN" disabled>
+
+                <div class="details-actions">
+                    <button id="editDetails" type="button" class="btn outline">Edit</button>
+                    <button id="saveDetails" type="button" class="btn primary" disabled>Save</button>
+                </div>
+            </form>
+        </aside>
+    </main>
+
+    <!-- Cart sidebar (hidden by default) -->
+    <aside id="cartSidebar" class="cart-sidebar hidden">
+        <div class="cart-header">
+            <h4>Your Cart</h4>
+            <button id="closeCart" class="x">✕</button>
+        </div>
+        <div id="cartItems" class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-summary">
+                <div id="cartCount">0 items</div>
+                <div id="cartTotal">₹0.00</div>
+            </div>
+            <button id="checkoutBtn" class="btn primary">Checkout (Send)</button>
+        </div>
+    </aside>
+
+    <!-- Bottom bar -->
+    <footer class="bottom-bar">
+        <div id="cartStatus" class="cart-status">
+            <img id="cartIcon" src="assets/empty_cart.jpg" alt="cart">
+            <div id="cartText">Your cart is empty</div>
+        </div>
+
+        <div class="bottom-actions">
+            <button id="openCartBtn" class="btn outline cart-mini">
+                <span class="cart-count" id="bottomCartCount">0</span>
+                Cart
+            </button>
+            <button id="sendBtn" class="btn send">SEND</button>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
