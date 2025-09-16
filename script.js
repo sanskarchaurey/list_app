@@ -76,7 +76,7 @@ function renderProducts(products) {
       <div class="price-col">
         <p>INR ${p.price.toFixed(2)}</p>
         <button class="add-btn" data-id="${p.id}" title="Add to Cart">
-          <img src="/assets/expand1.jpg" alt="add">
+          <img src="/assets/expands.jpg" alt="add">
         </button>
       </div>
     `;
@@ -256,3 +256,4 @@ saveBtn.addEventListener('click', () => {
 /* initial render */
 renderProducts(sampleProducts);
 updateCartUI();
+
